@@ -1,12 +1,15 @@
 using namespace std;
 #include <iostream>
-
-
+#include <string>
 
 
 class Rectangle{
-
 public:
+  // Constructeurs                                                              Appelé par défaut,initialise les attribut
+  Rectangle(double h, double l)                                                 //Meme nom que la class, invoqué automatiquement a la création. Il peut y en avoir plusieurs pour une seule classe
+  :hauteur(h), largeur(l)                                                       //Meme chose que hauteur = h; largeur = l;
+  {}
+
   //Prototypes de methode
   double surface() const;
 
@@ -27,15 +30,23 @@ double Rectangle::surface() const{             //Pas besoin de passer les attrib
   return hauteur*largeur;
 }
 
+class RectangleColore{
+public:
+  RectangleColore(double h, double l, string c)
+    :rectangle(h,l), couleur(c)                                                 // type de constructeur. Initialise un rectangle sans en créer un séparé du rectangle coloré créé.
+  {}   //Autres methodes
 
+private:
+  Rectangle rectangle;
+  string couleur;
+};
 
 
 int main(){
-  Rectangle rect1;
-  rect1.set_hauteur(3.0);
-  rect1.set_largeur(4.0);
 
-  cout << "Hauteur = " << rect1.get_hauteur() << endl << "Largeur = " << rect1.get_largeur() << endl << "Surface = "<< rect1.surface() << endl;
+  Rectangle rect2(3.0,4.0);                                                     // Initialise avec constructeur
 
+  // cout << "Hauteur = " << rect1.get_hauteur() << endl << "Largeur = " << rect1.get_largeur() << endl << "Surface = "<< rect1.surface() << endl;
+  cout << "Hauteur = " << rect2.get_hauteur() << endl << "Largeur = " << rect2.get_largeur() << endl << "Surface = "<< rect2.surface() << endl;
   return 0;
 }
