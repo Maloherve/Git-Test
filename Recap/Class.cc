@@ -47,6 +47,7 @@ public:
 private:
   Rectangle rectangle;
   string couleur;
+  double hauteur;
 };
 
 
@@ -54,9 +55,10 @@ private:
 class RectanglePointeur{
 public:
   RectanglePointeur()
-  :hauteur(new double(2.0)), largeur(new double(4.0))
+  :hauteur(new double(2.0)), largeur(new double(                                                                                      4.0))
   {}
-  //Destructeur                                                                 // Appelé en fin de vie, il s'occupe de fermer/detruire les ressources allouées
+  //Destructeur
+  double hauteur;                                          // Appelé en fin de vie, il s'occupe de fermer/detruire les ressources allouées
   ~RectanglePointeur()
   {
     delete hauteur;
