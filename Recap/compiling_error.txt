@@ -1,4 +1,0 @@
-/home/malo/EPFL Programming/EPFL MOOC/Lessons/Recap/Erreur.cc: In function ‘int main()’:
-/home/malo/EPFL Programming/EPFL MOOC/Lessons/Recap/Erreur.cc:46:20: error: variable or field ‘test_div’ declared void
-     void test_div(n);
-                    ^

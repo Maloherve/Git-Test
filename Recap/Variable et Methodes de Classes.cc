@@ -19,7 +19,8 @@ private:
   double largeur;
 };
 
-int Rectangle::compteur(0);                                                   // On doit initialiser l'attribut en dehors de la classe
+
+int Rectangle::compteur(0);                                                     // On doit initialiser l'attribut en dehors de la classe
 
 
 void print(){cout << "Compteur = " << Rectangle::compteur << endl;}             // Rectangle::compteur indique qu'on accede a l'attribut de classe compteur de la classe rectangle

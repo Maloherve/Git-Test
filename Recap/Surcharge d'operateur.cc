@@ -25,7 +25,7 @@ public:
 
   void print(){cout << "Partie Reel : " << reel << " , Partie Immaginaire : " << complexe << endl;}
   Complexe operator+(Complexe const& z2);                                       // Prototype de la surcharge d'operateur interne // Un seul parametre
-  Complexe operator+=(Complexe const& z2);
+  void operator+=(Complexe const& z2);
 private:
   double reel;
   double complexe;
@@ -38,10 +38,15 @@ private:
 Complexe Complexe::operator+(Complexe const& z2){                               // Bien preciser Complexe::
   Complexe z3(reel + z2.get_reel(), complexe + z2.get_complexe());
   return z3;}
-Complexe Complexe::operator+=(Complexe const& z2){
-  reel += z2.get_reel();
-  complexe += z2.get_complexe();
+
+void Complexe::operator+=(Complexe const& z2){
+  reel += z2.reel;
+  complexe += z2.complexe;
 }
+
+
+
+
 
 // Surcharge externe, a l'exterieur de la classe
 Complexe operator*(Complexe const& z, double scalaire){
@@ -55,6 +60,18 @@ ostream& operator<<(ostream& sortie, Complexe const& z){                        
 }
 
 
+class EnormeClasse{
+public:
+  EnormeClasse(int test1 = 0, int test2 = 0)
+  :test1(test1), test2(test2)
+  {}
+  int test1;
+  int test2;
+
+  EnormeClasse& operator=(EnormeClasse const&) = delete;                      // Empeche de créer des copie d'une instance de cette classe a l'aide de a = b
+private:
+};
+
 
 
 int main(){
@@ -67,7 +84,9 @@ int main(){
   cout << "z3 : " << z3 << endl;
   cout << "z4 : " << z4 << endl;
 
-
-  cout << endl;
+  // EnormeClasse a;                                                            // ne sera donc pas possible du a la deletion de l'operateur =
+  // EnormeClasse b;
+  // b = a;
+  // cout << b.test1 << endl;
   return 0;
 }
