@@ -74,9 +74,6 @@ private:
 
 
 
-
-
-
 int main(){
 
   Rectangle rect1;                                                              // Initialise avec constructeur par défaut

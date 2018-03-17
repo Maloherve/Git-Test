@@ -12,6 +12,10 @@ using namespace std;
 
 // Surcharge : meme nom, differents Attributs
 
+// Preferer la surcharge externe si un nouvel objet est cree, sinon la surcharge interne
+// Preferer la surcharge externe si vous n'avez pas besoin d'acceder aux parties privee, sinon la surcharge interne
+
+
 
 
 class Complexe{
