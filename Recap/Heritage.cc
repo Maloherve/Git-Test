@@ -40,10 +40,9 @@ ostream& operator<<(ostream& sortie, Personnage const& p){                      
 sortie << "Statistiques de " << p.get_name() << " : " << endl << "Points de vie : " << p.get_pv() << endl << "Energie : " << p.get_energie() << endl;
 return sortie;}
 
-void Personnage::rencontrer(Personnage& autre){
-  cout << "Bonjour " << autre.get_name() << " !! Je m'appel " << name << "." << endl;
 
-}
+void Personnage::rencontrer(Personnage& autre){
+  cout << "Bonjour " << autre.get_name() << " !! Je m'appel " << name << "." << endl;}
 
 
 
@@ -62,10 +61,7 @@ public:
     cout << "Moi , Je suis un guerrier et je cogne avec : " << arme << endl;}
   void rencontrer(Personnage& autre){                                                           // Masquage : On masque la focion rencontrer définie pour un personnage de base (définie dans la super classe ) par une nouvelle fonction adaptée a la sous-classe
     Personnage::rencontrer(autre);                                                              // Il est cependant possible d'acceder la methode pas defaut
-
     cout << "GRRRRRR je suis un guerrier j'aime pas me presenter !!!!" << endl;
-
-
   }
 private:
   string arme;
@@ -110,7 +106,7 @@ int main(){
 
 
 
- // guarde.rencontrer(hero);
+ guarde.rencontrer(hero);
  // hero.rencontrer(guarde);
 
   return 0;
