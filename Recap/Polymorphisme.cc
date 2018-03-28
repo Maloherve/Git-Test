@@ -21,8 +21,8 @@ public:
   int get_energie() const{return energie;};
   string get_name() const{return name;};
 
-  virtual void rencontrer(Personnage const& autre) const{
-    cout << "Rencontrer de Personnage" << endl;};
+  virtual void rencontrer(Personnage& p) const{
+    cout << "Rencontrer de Personnage" << endl;}
   void print(){cout << "Statistiques de " << name << " : " << endl << "Points de vie : " << pv << endl << "Energie : " << energie << endl;}
 
 protected:                                                                      //permet l'acces aux attributs par la descendance de cette super classe
@@ -56,12 +56,13 @@ public:
 
   void print(){
     Personnage::print();
-    cout << "Moi , Je suis un guerrier et je cogne avec : " << arme << endl;}
-  void rencontrer(Personnage& autre) const{                                                           // Masquage : On masque la focion rencontrer définie pour un personnage de base (définie dans la super classe ) par une nouvelle fonction adaptée a la sous-classe
-    // Personnage::rencontrer(autre);                                                              // Il est cependant possible d'acceder la methode pas defaut
-    cout << "Rencontrer de Guerrier" << endl;
-    // cout << "GRRRRRR je suis un guerrier j'aime pas me presenter !!!!" << endl;
+    cout << "Moi , Je suis un guerrier et je cogne avec : " << arme << endl;
   }
+
+
+  void rencontrer(Personnage& p) const{
+    cout << "Rencontrer de Guerrier" << endl;}
+
 private:
   string arme;
 };
@@ -72,10 +73,12 @@ public:
   Mage(int pv = 100, int energie = 100, string name = "Mage par default", string baton = "Brindille")
   :Personnage(pv, energie, name), baton(baton)
   {}
-    void print(){
-      Personnage::print();
-      cout << "Je suis un noble mage qui lance mes sors avec ma " << baton << endl;}
+  void print(){
+    Personnage::print();
+    cout << "Je suis un noble mage qui lance mes sors avec ma " << baton << endl;}
 
+    void rencontrer(Personnage& p) const{
+      cout << "Rencontrer de Mage" << endl;}
 private:
   string baton;
 };
@@ -83,6 +86,7 @@ private:
 void faire_rencontrer(Personnage& un, Personnage& autre){
  cout << un.get_name() << " rencontre " << autre.get_name() << " : " <<  endl;
  un.rencontrer(autre);
+ autre.rencontrer(un);
 
 }
 
@@ -92,7 +96,7 @@ int main(){
   Personnage pnj;
   Mage hero(2000, 1500, "Natsu", "Bite");                                       // Definition methode 2
   Guerrier garde(200, 50, "Robert le garde", "Epee");
-  Personnage gardebis(garde);                                                 //definition methode 1
+  // Personnage gardebis(garde);                                                 //definition methode 1
   // Mage default_mage;
   // hero.print();
   // cout << endl;
