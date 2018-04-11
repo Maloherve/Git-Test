@@ -4,12 +4,20 @@ using namespace std;
 //Le polymotrphisme est le fait que les instances d'une sous classe, lequelles sont substituables aux instances des classes parentes,
 //gardent leurs proppriete propres.
 
-// 1) /!\ Animal qui est un dragon prends ses methodes de Animal   ( Drangon d; Animal a(d);)
-// 2) /!\ Dragon qui est un Animal prends ses methodes du masquage dans Dragon   ( Drangon d;)
-
-// resolution statique des liens : le fait qu'une instance d'une classe définie comme 1) prends ses methode de la classe parente, ceci est contré avec la resolution dynamique des liens
+// resolution statique des liens : Le fait qu'une instance d'une sous classe, lorsque passée comme argument et identifié comme sa classe mere, fasse appele au methodes de la classe mere. Solution : Resolution dynamique des liens
 
 // Resolution dynamique des lien : 2 ingredients essentiel : mot clé "virtual" et passage par reference des argument de la methode.
+
+
+// Mot Clés :
+// Override : à utilisier lors d'une substitution d'une fonction, le compilateur va verifier que la fonction a bel et bien ete definie auparavant. Ne marche que pour les virtuals
+// Final : Empeche la substitution de cette fonction dans les sous classes.
+
+
+// Methodes virtuelles Pures (= Abstraites) :
+// Une methode virtuelle d'une classe mere est definie comme "pure" pour obliger les classes filles a posseder une substitution de cette methode.
+// On ajoute =0 a la fin du prototype : virtual void afficher() const = 0;
+// /!\ On ne peut pas creer d'instance d'une classe contenant une methode virtuelle pure 
 
 class Personnage{
 public:
@@ -60,7 +68,7 @@ public:
   }
 
 
-  void rencontrer(Personnage& p) const{
+  void rencontrer(Personnage& p) const override{
     cout << "Rencontrer de Guerrier" << endl;}
 
 private:
@@ -77,7 +85,7 @@ public:
     Personnage::print();
     cout << "Je suis un noble mage qui lance mes sors avec ma " << baton << endl;}
 
-    void rencontrer(Personnage& p) const{
+    void rencontrer(Personnage& p) const override{
       cout << "Rencontrer de Mage" << endl;}
 private:
   string baton;
