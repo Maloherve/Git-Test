@@ -1,0 +1,6 @@
+Biblioteques :
+
+
+Piles : Dernier arrivé dernier servi (pile d'assietes)
+vs
+Files d'attentes : Premier arrivé premier servi (File d'attente)

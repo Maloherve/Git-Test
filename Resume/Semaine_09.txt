@@ -1,0 +1,3 @@
+Si la classe "grand mere" est initialisée par la classe fille, le constructeur des classes meres faisant appel a la classe grand mere n'est pas appelé
+L'appel du constructeur de la classe grand mere est OBLIGATOIRE.
+    si le constructeur par defaut de la classe Grand mere n'existe pas, alors la classe fille ne peut pas etre initialisée si elle n'appel pas le nouveau constructeur

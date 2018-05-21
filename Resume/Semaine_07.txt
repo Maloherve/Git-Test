@@ -1,0 +1,4 @@
+Ne jamais faire de "test de type" ( If type(objet) == Ressort, faire .....), Mais utiliser le polymorphisme
+
+
+Affichage polymorphique : << externe, propre a Ressort, fait appel a affichage, qui est une methode viruelle pour la classe mere, et qui est override pour les classes filles. VOIR COURS SEMAINE 07
